@@ -19,3 +19,4 @@ test('T3171',
      ['$MAKE -s --no-print-directory T3171'])
 
 test('ghcirun004', just_ghci, compile_and_run, [''])
+test('T8215',      just_ghci, compile_and_run, [''])
