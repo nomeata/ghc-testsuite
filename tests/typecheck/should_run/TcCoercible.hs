@@ -1,5 +1,7 @@
 {-# LANGUAGE RoleAnnotations #-}
-import GHC.Coercible
+
+import GHC.Prim (coerce)
+import GHC.Types (Coercible)
 
 newtype Age = Age Int deriving Show
 newtype Foo = Foo Age deriving Show

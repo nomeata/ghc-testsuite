@@ -1,6 +1,7 @@
 {-# LANGUAGE RoleAnnotations, RankNTypes, ScopedTypeVariables #-}
 
-import GHC.Coercible
+import GHC.Prim (coerce)
+import GHC.Types (Coercible)
 import TcCoercibleFailHelp
 
 newtype Age = Age Int deriving Show
