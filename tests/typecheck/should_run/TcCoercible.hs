@@ -1,7 +1,7 @@
 {-# LANGUAGE RoleAnnotations #-}
 
 import GHC.Prim (coerce)
-import GHC.Types (Coercible)
+import Data.Monoid (First(First))
 
 newtype Age = Age Int deriving Show
 newtype Foo = Foo Age deriving Show
@@ -20,6 +20,8 @@ main = do
     print (coerce $ (Age 1, Foo (Age 1))      :: (Baz, Baz))
 
     print (coerce $ Map one one               :: Map Int Age)
+
+    print (coerce $ Just one                  :: First Int)
 
   where one = 1 :: Int
 
