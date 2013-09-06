@@ -28,33 +28,35 @@ TcCoercibleFail.hs:16:8:
         foo3 = coerce $ (return one :: IO Int) :: IO Age
 
 TcCoercibleFail.hs:18:8:
-    No instance for (Coercible Int (Private Int))
-    because the constructor of ‛Private’ is not imported
+    No instance for (Coercible Int (Down Int))
+    because the constructor of ‛Down’ is not imported
       arising from a use of ‛coerce’
     In the expression: coerce
-    In the expression: coerce $ one :: Private Int
-    In an equation for ‛foo4’: foo4 = coerce $ one :: Private Int
+    In the expression: coerce $ one :: Down Int
+    In an equation for ‛foo4’: foo4 = coerce $ one :: Down Int
 
 TcCoercibleFail.hs:24:8:
-    No instance for (Coercible (Private Int) (Private Age))
-      because the constructor of ‛Private’ is not imported
+    No instance for (Coercible (Down Int) (Down Age))
+      because the constructor of ‛Down’ is not imported
       arising from a use of ‛coerce’
     In the expression: coerce
     In the expression:
-        coerce $ WrapPrivate (mkPrivate one) :: WrapPrivate Age
+        coerce $ WrapPrivate (undefined :: Down Int) :: WrapPrivate Age
     In an equation for ‛foo6’:
-        foo6 = coerce $ WrapPrivate (mkPrivate one) :: WrapPrivate Age
+        foo6
+          = coerce $ WrapPrivate (undefined :: Down Int) :: WrapPrivate Age
 
 TcCoercibleFail.hs:28:8:
     No instance for (Coercible (WrapPrivate' Int) (WrapPrivate' Age))
-      because the constructor of ‛Private’ (used within ‛WrapPrivate'’)
+      because the constructor of ‛Down’ (used within ‛WrapPrivate'’)
       is not imported
       arising from a use of ‛coerce’
     In the expression: coerce
     In the expression:
-        coerce $ WrapPrivate' (mkPrivate one) :: WrapPrivate' Age
+        coerce $ WrapPrivate' (undefined :: Down Int) :: WrapPrivate' Age
     In an equation for ‛foo7’:
-        foo7 = coerce $ WrapPrivate' (mkPrivate one) :: WrapPrivate' Age
+        foo7
+          = coerce $ WrapPrivate' (undefined :: Down Int) :: WrapPrivate' Age
 
 TcCoercibleFail.hs:32:8:
     No instance for (Coercible (Void ()) ())

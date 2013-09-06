@@ -2,7 +2,7 @@
 
 import GHC.Prim (coerce)
 import GHC.Types (Coercible)
-import TcCoercibleFailHelp
+import Data.Ord (Down)
 
 newtype Age = Age Int deriving Show
 
@@ -15,17 +15,17 @@ foo2 = coerce $ (return one :: m Int)
 
 foo3 = coerce $ (return one :: IO Int) :: IO Age
 
-foo4 = coerce $ one :: Private Int
+foo4 = coerce $ one :: Down Int
 
-foo5 = coerce $ mkPrivate one :: Private Age
+foo5 = coerce $ (undefined :: Down Int) :: Down Age
 
-newtype WrapPrivate a = WrapPrivate (Private a)
+newtype WrapPrivate a = WrapPrivate (Down a)
 
-foo6 = coerce $ WrapPrivate (mkPrivate one) :: WrapPrivate Age
+foo6 = coerce $ WrapPrivate (undefined :: Down Int) :: WrapPrivate Age
 
-data WrapPrivate' a = WrapPrivate' (Private a)
+data WrapPrivate' a = WrapPrivate' (Down a)
 
-foo7 = coerce $ WrapPrivate' (mkPrivate one) :: WrapPrivate' Age
+foo7 = coerce $ WrapPrivate' (undefined :: Down Int) :: WrapPrivate' Age
 
 newtype Void a = Void (Void (a,a))
 
