@@ -13,11 +13,13 @@ foo1 = coerce $ one :: ()
 foo2 :: forall m. Monad m => m Age
 foo2 = coerce $ (return one :: m Int)
 
-foo3 = coerce $ one :: Down Int
+foo3 = coerce $ Map one () :: Map Age ()
+
+foo4 = coerce $ one :: Down Int
 
 newtype Void a = Void (Void (a,a))
 
-foo4 = coerce :: (Void ()) -> ()
+foo5 = coerce :: (Void ()) -> ()
 
 one :: Int
 one = 1
