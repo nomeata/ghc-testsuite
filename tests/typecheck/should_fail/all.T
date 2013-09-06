@@ -320,3 +320,4 @@ test('TcCoercibleFail',
     [ when(compiler_lt('ghc', '7.7'), skip),
       extra_clean(['TcCoercibleFailHelp.o','TcCoercibleFailHelp.hi'])],
     multimod_compile_fail, ['TcCoercibleFail','-v0'])
+test('TcCoercibleFail2', when(compiler_lt('ghc', '7.7'), skip), compile_fail, [''])
