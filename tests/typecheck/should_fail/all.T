@@ -316,3 +316,7 @@ test('T7809', normal, compile_fail, [''])
 test('T7989', normal, compile_fail, [''])
 test('T8142', normal, compile_fail, [''])
 test('T8262', normal, compile_fail, [''])
+test('TcCoercibleFail',
+    [ when(compiler_lt('ghc', '7.7'), skip),
+      extra_clean(['TcCoercibleFailHelp.o','TcCoercibleFailHelp.hi'])],
+    multimod_compile_fail, ['TcCoercibleFail','-v0'])
