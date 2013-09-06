@@ -27,6 +27,10 @@ data WrapPrivate' a = WrapPrivate' (Private a)
 
 foo7 = coerce $ WrapPrivate' (mkPrivate one) :: WrapPrivate' Age
 
+newtype Void a = Void (Void (a,a))
+
+foo8 = coerce :: (Void ()) -> ()
+
 one :: Int
 one = 1
 
