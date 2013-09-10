@@ -1,7 +1,7 @@
 {-# LANGUAGE RoleAnnotations #-}
 
 import GHC.Prim (coerce)
-import Data.Monoid (First(First))
+import Data.Monoid (mempty, First(First), Last())
 
 newtype Age = Age Int deriving Show
 newtype Foo = Foo Age deriving Show
@@ -22,6 +22,7 @@ main = do
     print (coerce $ Map one one               :: Map Int Age)
 
     print (coerce $ Just one                  :: First Int)
+    print (coerce $ (mempty :: Last Age)      :: Last Int)
 
   where one = 1 :: Int
 
