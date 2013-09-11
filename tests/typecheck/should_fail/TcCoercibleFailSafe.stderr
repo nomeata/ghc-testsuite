@@ -1,5 +1,5 @@
 
-TcCoercibleFailSafe.hs:10:8:
+TcCoercibleFailSafe.hs:9:8:
     No instance for (Coercible (Down Age) (Down Int))
       because the constructor of ‛Down’ is not imported
       as required in SafeHaskell mode

@@ -1,4 +1,4 @@
-import GHC.Types (Coercible)
+import GHC.Prim (Coercible)
 
 instance Coercible () ()
 
